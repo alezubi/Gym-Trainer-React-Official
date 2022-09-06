@@ -1,0 +1,5 @@
+.centered{
+    padding-top: 10px;
+    display: grid;
+    justify-content: center;
+}
