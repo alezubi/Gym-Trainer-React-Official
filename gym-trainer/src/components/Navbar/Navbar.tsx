@@ -3,8 +3,6 @@ import "./Navbar.css"
 import { useContext } from "react"
 import { AppUser, AppUserContext } from "../../context/AppUserProvider";
 
-
-
 export default function Navbar(){
 
     //  AppUserContext acts as a wrapper for the contained state value set in the provider
