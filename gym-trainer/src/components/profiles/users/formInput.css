@@ -1,0 +1,13 @@
+.formInput{
+    text-align: center;
+  
+}
+
+input{
+    text-indent: 2px;
+    padding: 15px;
+    margin: 10px 0px;
+
+}
+
+label.SignUp{padding: 15px;}

@@ -1,4 +1,5 @@
-import SignUP1 from "../components/profiles/users/SignUpPart1";
+
+import SignUpFormRC from "../components/profiles/users/SignUpFormRC";
 
 
 
@@ -7,7 +8,8 @@ export default function HomePage(){
     
     <>
     <h1>You are logged in!</h1>
-    <SignUP1/>
+    <SignUpFormRC/>
+    
     
     </>)
 }
