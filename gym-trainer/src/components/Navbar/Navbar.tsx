@@ -3,8 +3,6 @@ import "./Navbar.css"
 import { useContext } from "react"
 import { AppUser, AppUserContext } from "../../context/AppUserProvider";
 
-
-
 export default function Navbar(){
 
     //  AppUserContext acts as a wrapper for the contained state value set in the provider
@@ -28,6 +26,7 @@ function AuthNavbarElements({appUser}: AuthNavbarElementProps){
         <li><Link to="/">Home</Link></li>
         <li><Link to="/exercises">Exercises</Link></li>
         <li><Link to="/week-view">Weekly Workout</Link></li>
+        <li>User Profile</li>
         <li className="element right">Hello, {appUser?.username}</li>
     </>
 }
