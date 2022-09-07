@@ -5,6 +5,7 @@ import AuthPage from "../pages/AuthPage"
 import HomePage from "../pages/HomePage"
 import { useContext } from "react"
 import { AppUserContext } from "../context/AppUserProvider"
+import WeekView from "../pages/weekview/WeekView"
 
 export default function Routes(){
 
@@ -18,5 +19,6 @@ export default function Routes(){
       </>
     }/>
     <Route path="/exercises" element={<ExercisePage />}/>
+    <Route path="/week-view" element={<WeekView />}/>
   </DOMRoutes>
 }
