@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Bootstrap, { Button } from 'bootstrap-4-react';
+import Bootstrap from 'bootstrap-4-react'
 
 export default class App extends Component {
   // A workaround since documentation pages are server-side-rendered
