@@ -1,5 +1,8 @@
+import { AccountCircle, FitnessCenter, Key } from "@mui/icons-material";
+import { Box, Button, ButtonGroup, Card, Container, InputAdornment, Link, TextField } from "@mui/material";
 import {useContext, useState} from "react"
 import { AppUser, AppUserUpdateContext } from "../context/AppUserProvider";
+import AuthP from "../pages/AuthPage"
 
 interface CredentialsFormProps{
     type: CredentialFormType;
@@ -43,10 +46,89 @@ export default function CredentialsForm({type}: CredentialsFormProps){
         
 
    return <>
-        <input type="text" placeholder="username" value={username} onChange={(e) => setUsername(e.target.value)}/> 
-        <br></br>
-        <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <br></br>
-        <button onClick={submit}>{type}</button>
+        <Container className="my-5 py-5 centered"  >
+
+<Card style={{width : "25rem", height: "17.5rem"}}>
+
+<h1 className="centered black mt-2">  <FitnessCenter fontSize="large"/> </h1>
+
+<Box className="mt-3 px-3">
+<TextField
+
+id="input-with-icon-textfield"
+InputProps={{
+startAdornment: (
+<InputAdornment position="start">
+<AccountCircle />
+</InputAdornment>
+ ),
+}}
+required
+label = "email"
+variant="outlined"
+fullWidth
+autoComplete="email"
+type="text" 
+placeholder="email" 
+autoFocus
+value={username} 
+onChange={(e) => setUsername(e.target.value)}
+/>
+</Box>
+<Box className="mt-3 px-3">
+<TextField
+
+  id="input-with-icon-textfield"
+InputProps={{
+startAdornment: (
+<InputAdornment position="start">
+<Key/>
+</InputAdornment>
+ ),
+}}
+ required
+ label = "password"
+ variant="outlined"
+ fullWidth
+ autoComplete="password"
+ type="password" 
+ placeholder="password" 
+ autoFocus
+value={password} 
+onChange={(e) => setPassword(e.target.value)}
+/>
+</Box>
+
+
+<ButtonGroup className="d-flex justify-content-center my-3 mx-3" >
+
+<Button 
+
+variant="contained"
+color='primary' 
+onClick={submit}>
+    
+ {type = "Login"}
+
+</Button>
+
+<Button 
+
+
+color='secondary' 
+variant="contained" 
+onClick={submit} 
+href="/register">
+    
+{type = "Register"}  
+
+
+</Button>
+
+</ButtonGroup>
+
+</Card>
+
+</Container>
    </>
 }
