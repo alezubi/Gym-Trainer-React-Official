@@ -8,6 +8,7 @@ import { AppUserContext } from "../context/AppUserProvider"
 import CredentialsForm from "./CredentialsForm"
 import SignUpPart2 from "./profiles/SignUpPart2"
 import SignUpPart1 from "./profiles/users/SignUpPart1"
+import GymForm from "./Form/GymForm"
 
 export default function Routes(){
 
@@ -23,5 +24,6 @@ export default function Routes(){
     <Route path="/exercises" element={<ExercisePage />}/>
     <Route path="/login" element={<CredentialsForm type={"Login"}/>}/>
     <Route path="/register" element={<SignUpPart1/>}/>
+    <Route path="/gymform" element={<GymForm/>}/>
   </DOMRoutes>
 }
