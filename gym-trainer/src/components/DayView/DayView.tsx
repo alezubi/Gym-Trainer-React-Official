@@ -1,14 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ExerciseData, tempExercises } from '../../pages/ExercisePage';
 
 interface workout {
-    day: String,
+    id: number,
     exercise: ExerciseData[],
-    log: String,
+    category: string,
+    description: string,
+    notes: string,
     completed: Boolean
 }
+
+interface WorkoutLog{
+  id: number,
+  user: string,
+  workout: workout ,
+  notes: string,
+  completed: Boolean,
+  date: Date
+}
+
+interface WorkoutPlanDto {
+   id: number;
+   user: string;
+   goal: string;
+   splits: string;
+   startDate:Date;
+   endDate: Date;
+   workoutList: workout[];
+}
+
+function sendData(workout: any, notes: any, completed: any){
+  console.log("sendData invoked");
+  return {
+    
+
+    "id": 1,
+    "user": "testuser",
+    "workout": workout,
+    "notes": notes,
+    "completed": completed,
+    "date": Date
+  }
+}
+
+
+function getData(){
+  // Api call using axios (get call)
+  // resolve promise by converting body to json
+  // fetch(url) endpoint = log, plan
+  // handle promise .then
+  console.log("getData invoked");
+
+  return{
+    "id": 1,
+    "exercise": mapData(tempExercises),
+    "category": "",
+    "description": "",
+    "notes": "",
+    "completed": false
+
+  }
+}
+
+
 
 function mapData(data: any): Array<ExerciseData>{
     return data.map(({id, name, exercise_base, description, category, muscles, muscles_secondary, equipment, variations}: any) => {
@@ -26,12 +82,14 @@ function mapData(data: any): Array<ExerciseData>{
     })
 }
 
-export default function DayView() {
+
+export default function DayView(props: any) {
+  function pageLoad(){getData();}
+  useEffect(pageLoad, [])
   const [show, setShow] = useState(false);
   const [workout, setWorkout] = useState({
-    day : "Monday",
-    exercise : mapData(tempExercises),
-    log: "",
+   exercise : mapData(tempExercises),
+    notes: "",
     completed: false
   });
 
@@ -41,7 +99,7 @@ export default function DayView() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const saveAndClose = () => {setShow(false); setWorkout(workout)}
+  const saveAndClose = () => {setShow(false); setWorkout(workout); sendData("", "", "");}
 
   return (
     <>
@@ -51,7 +109,7 @@ export default function DayView() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{workout.day}</Modal.Title>
+          <Modal.Title>{props.day}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <input type="checkbox" id="completed" name="completed" checked={completed} onChange={(e) => setCompleted(!completed)}></input>
@@ -68,7 +126,7 @@ export default function DayView() {
             <p><b>Log Day: </b></p>
 
             <textarea value={log} onChange={(e) => {setLog(e.target.value)}}/>
-            {workout.log}
+            {workout.notes}
 
 
         </Modal.Body>
