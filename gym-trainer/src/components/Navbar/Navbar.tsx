@@ -26,7 +26,7 @@ interface AuthNavbarElementProps{
 function AuthNavbarElements({appUser}: AuthNavbarElementProps){
     return <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/exercises">Exercises</Link></li>
+        <li><Link to="/workouts">Workout</Link></li>
         <li className="element right">Hello, {appUser?.username}</li>
     </>
 }
