@@ -24,6 +24,6 @@ export default function Routes(){
     <Route path="/exercises" element={<ExercisePage />}/>
     <Route path="/login" element={<CredentialsForm type={"Login"}/>}/>
     <Route path="/register" element={<SignUpPart1/>}/>
-    <Route path="/gymform" element={<GymForm/>}/>
+    <Route path="/gymForm" element={<GymForm/>}/>
   </DOMRoutes>
 }
